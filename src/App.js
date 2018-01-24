@@ -3,11 +3,14 @@ import React, { Component } from 'react'
 class App extends Component {
   render () {
     return (
-      <div>
-        Hello from our pesonas app.
-      </div>
+      <Header appName='personas' />
     )
   }
 }
 
-export default App
+const Header = (props) =>
+  <div>
+    Hello from our { props.appName } app.
+  </div>
+
+export { App }
