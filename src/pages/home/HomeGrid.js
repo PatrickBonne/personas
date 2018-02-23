@@ -11,8 +11,9 @@ const HomeGrid = glamorous.div(grid.container, {
 
 const gridItemLayout = {
   display: 'flex',
-  justifyContent: 'center',
+  justifyContent: 'flex-start',
   allignItems: 'center',
+  flexFlow: 'column nowrap',
   border: '1px solid black'}
 
 const LeftSideBar = glamorous.div(grid.leftSideBar, gridItemLayout)

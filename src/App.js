@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Home } from 'pages/home'
 
 class App extends Component {
   render () {
@@ -10,7 +11,7 @@ class App extends Component {
 
 const Header = (props) =>
   <div>
-    Hello from our { props.appName } app.
+    <Home appName='personas' />
   </div>
 
 export { App }
