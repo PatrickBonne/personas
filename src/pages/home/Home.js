@@ -1,7 +1,8 @@
 import React from 'react'
 import { HomeGrid, LeftSideBar, ContentsArea } from './HomeGrid'
-import { Persona } from './Persona'
+import { PersonaListItem } from './PersonaListItem'
 import { PersonaList } from './PersonaList'
+import { PersonaDetails } from './PersonaDetails'
 
 class Home extends React.Component {
   state = { persona: 'Nobody' }
@@ -17,17 +18,16 @@ class Home extends React.Component {
       <div>
         <HomeGrid>
           <LeftSideBar>
-            <h1>Names</h1>
             <PersonaList personaChanged={this.personaChanged}>
-              <Persona name='American Dad' />
-              <Persona name='Roger' />
-              <Persona name='Steve' />
-              <Persona name='Chuck Norris' />
+              <PersonaListItem name='American Dad' />
+              <PersonaListItem name='Roger' />
+              <PersonaListItem name='Steve' />
+              <PersonaListItem name='Chuck Norris' />
+              <PersonaListItem name='Patrick' />
             </PersonaList>
           </LeftSideBar>
           <ContentsArea>
-            <h1>Persona details</h1>
-            <p>{ this.state.persona }</p>
+            <PersonaDetails persona={this.state.persona} />
           </ContentsArea>
         </HomeGrid>
       </div>
