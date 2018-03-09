@@ -8,14 +8,14 @@ exports[`renders correctly 1`] = `
   <ul>
     <li>
       <p
-        personaChanged={undefined}
+        personaChanged={[Function]}
       >
         Text
       </p>
     </li>
     <li>
       <p
-        personaChanged={undefined}
+        personaChanged={[Function]}
       >
         Text
       </p>
