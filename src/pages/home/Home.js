@@ -2,6 +2,7 @@ import React from 'react'
 import { HomeGrid, PersonaListArea, PersonaDetailsArea, PersonaAddNewArea } from './HomeGrid'
 import { PersonaList } from './PersonaList'
 import { PersonaDetails } from './PersonaDetails'
+import { PersonaAddNew } from './PersonaAddNew'
 
 class Home extends React.Component {
   state = { persona: 'Nobody',
@@ -20,7 +21,6 @@ class Home extends React.Component {
   }
 
   render () {
-    var enteredName=''
     return (
       <div>
         <HomeGrid>
@@ -29,14 +29,9 @@ class Home extends React.Component {
           </PersonaListArea>
           <PersonaDetailsArea>
             <PersonaDetails persona={this.state.persona} />
-          </PersonaDetailsArea>
+          </PersonaDetailsArea>       
           <PersonaAddNewArea>
-            <div>
-              <h1>Add new persona</h1>
-              Name: <input onChange={(evt) => enteredName=evt.target.value} type='text' />
-              <br/>
-              <button onClick={() => this.personaAdded(enteredName) }>Add</button>
-            </div>
+            <PersonaAddNew personaNew={this.personaAdded} />
           </PersonaAddNewArea>
         </HomeGrid>
       </div>
