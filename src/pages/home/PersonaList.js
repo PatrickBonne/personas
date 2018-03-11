@@ -1,7 +1,7 @@
 import React from 'react'
 import { PersonaListItem } from './PersonaListItem'
 
-const PersonaList = ({ items, personaChanged }) => {
+const PersonaList = ( {items, personaChanged} ) => {
   return (
     <div>
       <h1>Names</h1>

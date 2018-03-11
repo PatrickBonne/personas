@@ -5,7 +5,7 @@ import { PersonaList } from './PersonaList'
 it('renders correctly', () => {
   const tree = renderer
     .create(
-      <PersonaList personaChanged={() => {}}>
+      <PersonaList items={[]} personaChanged={() => {}}>
         <p>Text</p>
         <p>Text</p>
       </PersonaList>

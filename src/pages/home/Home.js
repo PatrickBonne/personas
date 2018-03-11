@@ -5,8 +5,9 @@ import { PersonaDetails } from './PersonaDetails'
 
 class Home extends React.Component {
   state = { persona: 'Nobody',
-            personaList: ['American Dad', 'Roger', 'Chuck' ]
+            personaListEntries: ['American Dad', 'Roger', 'Chuck' ]
   }
+
 
   personaChanged = (newPersona) => {
     this.setState({
@@ -14,19 +15,27 @@ class Home extends React.Component {
     })
   }
 
+  personaAdded = (newPersona) => {
+    this.setState( { personaListEntries: [...this.state.personaListEntries, newPersona]})
+  }
+
   render () {
+    var enteredName=''
     return (
       <div>
         <HomeGrid>
           <PersonaListArea>
-            <PersonaList items={this.state.personaList} personaChanged={this.personaChanged} />
+            <PersonaList items={this.state.personaListEntries} personaChanged={this.personaChanged} />
           </PersonaListArea>
           <PersonaDetailsArea>
             <PersonaDetails persona={this.state.persona} />
           </PersonaDetailsArea>
           <PersonaAddNewArea>
             <div>
-              Add new persona
+              <h1>Add new persona</h1>
+              Name: <input onChange={(evt) => enteredName=evt.target.value} type='text' />
+              <br/>
+              <button onClick={() => this.personaAdded(enteredName) }>Add</button>
             </div>
           </PersonaAddNewArea>
         </HomeGrid>
