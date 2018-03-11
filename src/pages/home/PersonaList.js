@@ -1,11 +1,12 @@
 import React from 'react'
+import { PersonaListItem } from './PersonaListItem'
 
-const PersonaList = ({ children, personaChanged }) => {
+const PersonaList = ({ items, personaChanged }) => {
   return (
     <div>
       <h1>Names</h1>
       <ul>
-        { React.Children.map(children, (persona) => <li>{React.cloneElement(persona, { personaChanged })}</li>) }
+        { items.map( (item) =>  <li><PersonaListItem name={item} personaChanged={personaChanged} /> </li>)}
       </ul>
     </div>
   )
