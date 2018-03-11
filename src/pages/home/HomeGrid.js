@@ -1,7 +1,10 @@
 import glamorous from 'glamorous'
 import { Grid } from 'helpers/Grid'
 
-let grid = new Grid(['leftSideBar content'], { gridTemplateColumns: '2fr 3fr' })
+let grid = new Grid(['selectionArea detailArea', 
+                     'addNewArea    detailArea'], 
+                     { gridTemplateColumns: '2fr 3fr' }
+)
 
 const HomeGrid = glamorous.div(grid.container, {
   height: '100vh',
@@ -16,7 +19,8 @@ const gridItemLayout = {
   flexFlow: 'column nowrap',
   border: '1px solid black'}
 
-const LeftSideBar = glamorous.div(grid.leftSideBar, gridItemLayout)
-const ContentsArea = glamorous.div(grid.content, gridItemLayout)
+const PersonaListArea = glamorous.div(grid.selectionArea, gridItemLayout)
+const PersonaDetailsArea = glamorous.div(grid.detailArea, gridItemLayout)
+const PersonaAddNewArea = glamorous.div(grid.addNewArea, gridItemLayout)
 
-export {HomeGrid, LeftSideBar, ContentsArea}
+export {HomeGrid, PersonaListArea, PersonaDetailsArea, PersonaAddNewArea}

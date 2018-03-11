@@ -1,5 +1,5 @@
 import React from 'react'
-import { HomeGrid, LeftSideBar, ContentsArea } from './HomeGrid'
+import { HomeGrid, PersonaListArea, PersonaDetailsArea, PersonaAddNewArea } from './HomeGrid'
 import { PersonaListItem } from './PersonaListItem'
 import { PersonaList } from './PersonaList'
 import { PersonaDetails } from './PersonaDetails'
@@ -17,7 +17,7 @@ class Home extends React.Component {
     return (
       <div>
         <HomeGrid>
-          <LeftSideBar>
+          <PersonaListArea>
             <PersonaList personaChanged={this.personaChanged}>
               <PersonaListItem name='American Dad' />
               <PersonaListItem name='Roger' />
@@ -25,10 +25,15 @@ class Home extends React.Component {
               <PersonaListItem name='Chuck Norris' />
               <PersonaListItem name='Patrick' />
             </PersonaList>
-          </LeftSideBar>
-          <ContentsArea>
+          </PersonaListArea>
+          <PersonaDetailsArea>
             <PersonaDetails persona={this.state.persona} />
-          </ContentsArea>
+          </PersonaDetailsArea>
+          <PersonaAddNewArea>
+            <div>
+              Add new persona
+            </div>
+          </PersonaAddNewArea>
         </HomeGrid>
       </div>
     )
