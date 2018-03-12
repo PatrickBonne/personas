@@ -7,18 +7,20 @@ exports[`renders correctly 1`] = `
   </h1>
   <ul>
     <li>
-      <p
-        personaChanged={[Function]}
+      <button
+        onClick={[Function]}
       >
-        Text
-      </p>
+        P1
+      </button>
+       
     </li>
     <li>
-      <p
-        personaChanged={[Function]}
+      <button
+        onClick={[Function]}
       >
-        Text
-      </p>
+        P2
+      </button>
+       
     </li>
   </ul>
 </div>

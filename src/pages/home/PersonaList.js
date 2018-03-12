@@ -6,7 +6,7 @@ const PersonaList = ( {items, personaChanged} ) => {
     <div>
       <h1>Names</h1>
       <ul>
-        { items.map( (item) =>  <li><PersonaListItem name={item} personaChanged={personaChanged} /> </li>)}
+        { items.map( (item, index) =>  <li key={index}><PersonaListItem name={item} personaChanged={personaChanged} /> </li>)}
       </ul>
     </div>
   )
