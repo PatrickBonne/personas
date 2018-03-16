@@ -1,5 +1,8 @@
 import React, { Component } from 'react'
+import { Provider } from 'react-redux'
 import { Home } from 'pages/home'
+
+import { store } from 'app-state'
 
 class App extends Component {
   render () {
@@ -10,8 +13,8 @@ class App extends Component {
 }
 
 const Header = (props) =>
-  <div>
+  <Provider store={store}>
     <Home appName='personas' />
-  </div>
+  </Provider>
 
 export { App }

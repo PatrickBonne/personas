@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { HomeGrid, PersonaListArea, PersonaDetailsArea, PersonaAddNewArea } from './HomeGrid'
 import { PersonaList } from './PersonaList'
 import { PersonaDetails } from './PersonaDetails'
@@ -6,8 +7,8 @@ import { PersonaAddNew } from './PersonaAddNew'
 
 class Home extends React.Component {
   state = {
-    persona: 'Nobody',
-    personaListEntries: ['American Dad', 'Roger', 'Chuck']
+    persona: 'Nobody'
+    // personaListEntries: ['American Dad', 'Roger', 'Chuck']
   }
 
   personaChanged = (newPersona) => {
@@ -17,7 +18,7 @@ class Home extends React.Component {
   }
 
   personaAdded = (newPersona) => {
-    this.setState({personaListEntries: [...this.state.personaListEntries, newPersona]})
+    // this.setState({personaListEntries: [...this.state.personaListEntries, newPersona]})
   }
 
   render () {
@@ -25,7 +26,7 @@ class Home extends React.Component {
       <div>
         <HomeGrid>
           <PersonaListArea>
-            <PersonaList items={this.state.personaListEntries} personaChanged={this.personaChanged} />
+            <PersonaList items={this.props.personas} personaChanged={this.personaChanged} />
           </PersonaListArea>
           <PersonaDetailsArea>
             <PersonaDetails persona={this.state.persona} />
@@ -39,4 +40,13 @@ class Home extends React.Component {
   }
 }
 
-export { Home }
+const mapStateToProps = (state) => ({
+  personas: state.personas
+})
+
+const mapDispatchToProps = () => ({})
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Home)

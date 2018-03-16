@@ -5,7 +5,7 @@ class PersonaAddNew extends React.Component {
       enteredName: ''
     }
 
-    onAddName () {
+    onAddName = () => {
       this.props.personaNew(this.state.enteredName)
       this.setState({enteredName: ''})
     }
