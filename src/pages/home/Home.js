@@ -5,10 +5,10 @@ import { PersonaDetails } from './PersonaDetails'
 import { PersonaAddNew } from './PersonaAddNew'
 
 class Home extends React.Component {
-  state = { persona: 'Nobody',
-            personaListEntries: ['American Dad', 'Roger', 'Chuck' ]
+  state = {
+    persona: 'Nobody',
+    personaListEntries: ['American Dad', 'Roger', 'Chuck']
   }
-
 
   personaChanged = (newPersona) => {
     this.setState({
@@ -17,7 +17,7 @@ class Home extends React.Component {
   }
 
   personaAdded = (newPersona) => {
-    this.setState( { personaListEntries: [...this.state.personaListEntries, newPersona]})
+    this.setState({personaListEntries: [...this.state.personaListEntries, newPersona]})
   }
 
   render () {
@@ -29,7 +29,7 @@ class Home extends React.Component {
           </PersonaListArea>
           <PersonaDetailsArea>
             <PersonaDetails persona={this.state.persona} />
-          </PersonaDetailsArea>       
+          </PersonaDetailsArea>
           <PersonaAddNewArea>
             <PersonaAddNew personaNew={this.personaAdded} />
           </PersonaAddNewArea>
