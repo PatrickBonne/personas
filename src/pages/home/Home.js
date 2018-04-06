@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { HomeGrid, PersonaListArea, PersonaDetailsArea, PersonaAddNewArea } from './HomeGrid'
-import { PersonaList, PersonaDetails, PersonaAddNew } from 'components/persona'
+import { PersonaList, PersonaDetails, PersonaAddNew, PersonaActions } from 'components/persona'
 
 class Home extends React.Component {
   state = {
@@ -10,9 +10,7 @@ class Home extends React.Component {
   }
 
   personaChanged = (newPersona) => {
-    this.setState({
-      persona: newPersona
-    })
+    this.props.selectPersona(newPersona)
   }
 
   personaAdded = (newPersona) => {
@@ -27,7 +25,7 @@ class Home extends React.Component {
             <PersonaList items={this.props.personas} personaChanged={this.personaChanged} />
           </PersonaListArea>
           <PersonaDetailsArea>
-            <PersonaDetails persona={this.state.persona} />
+            <PersonaDetails persona={this.props.selectedPersona} />
           </PersonaDetailsArea>
           <PersonaAddNewArea>
             <PersonaAddNew personaNew={this.personaAdded} />
@@ -39,10 +37,13 @@ class Home extends React.Component {
 }
 
 const mapStateToProps = (state) => ({
-  personas: state.personas
+  personas: state.personas.personaList,
+  selectedPersona: state.personas.selectedPersona
 })
 
-const mapDispatchToProps = () => ({})
+const mapDispatchToProps = (dispatch) => ({
+  selectPersona: (personaName) => dispatch(PersonaActions.selectPersona(personaName))
+})
 
 export default connect(
   mapStateToProps,

@@ -2,8 +2,7 @@ import React from 'react'
 
 const PersonaListItem = ({ name, personaChanged }) =>
   <button onClick={() => {
-    personaChanged(`${name} here!`)
-    console.log(`${name} here!`)
+    personaChanged(`${name}`)
   }}>{ name }</button>
 
 export { PersonaListItem }
