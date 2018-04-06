@@ -4,11 +4,6 @@ import { HomeGrid, PersonaListArea, PersonaDetailsArea, PersonaAddNewArea } from
 import { PersonaList, PersonaDetails, PersonaAddNew, PersonaActions } from 'components/persona'
 
 class Home extends React.Component {
-  state = {
-    persona: 'Nobody'
-    // personaListEntries: ['American Dad', 'Roger', 'Chuck']
-  }
-
   personaChanged = (newPersona) => {
     this.props.selectPersona(newPersona)
   }
@@ -28,7 +23,7 @@ class Home extends React.Component {
             <PersonaDetails persona={this.props.selectedPersona} />
           </PersonaDetailsArea>
           <PersonaAddNewArea>
-            <PersonaAddNew personaNew={this.personaAdded} />
+            <PersonaAddNew personaNew={this.props.addPersona} />
           </PersonaAddNewArea>
         </HomeGrid>
       </div>
@@ -42,7 +37,8 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  selectPersona: (personaName) => dispatch(PersonaActions.selectPersona(personaName))
+  selectPersona: (personaName) => dispatch(PersonaActions.selectPersona(personaName)),
+  addPersona: (personaName) => dispatch(PersonaActions.addPersona(personaName))
 })
 
 export default connect(

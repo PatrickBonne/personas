@@ -14,6 +14,12 @@ const reducer = (state = initialState, action) => {
         return { ...state, selectedPersona: action.personaName }
       }
       return state
+    case 'ADD_PERSONA':
+      if (state.personaList.find((personaName) => personaName === action.personaName)) {
+        return state
+      }
+      return {...state, personaList: [...state.personaList, action.personaName]}
+
     default:
       return state
   }

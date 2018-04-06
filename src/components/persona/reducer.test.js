@@ -58,4 +58,43 @@ describe('selecting persona', () => {
 
     expect(reducer(initialState, PersonaActions.selectPersona('Jeroen'))).toBe(initialState)
   })
+
+  it('adds a person to the personaList', () => {
+    const initialState = deepFreeze({
+      personaList: [
+        'American Dad',
+        'Roger',
+        'Chuck'
+      ],
+      selectedPersona: 'Nobody'
+    })
+
+    expect(reducer(initialState, PersonaActions.addPersona('Jeroen'))).toEqual({...initialState, personaList: [...initialState.personaList, 'Jeroen']})
+  })
+
+  it('does not change the state if selected persona is not known', () => {
+    const initialState = deepFreeze({
+      personaList: [
+        'American Dad',
+        'Roger',
+        'Chuck'
+      ],
+      selectedPersona: 'Nobody'
+    })
+
+    expect(reducer(initialState, PersonaActions.selectPersona('Jeroen'))).toBe(initialState)
+  })
+
+  it('does not add duplicate names', () => {
+    const initialState = deepFreeze({
+      personaList: [
+        'American Dad',
+        'Roger',
+        'Chuck'
+      ],
+      selectedPersona: 'Nobody'
+    })
+
+    expect(reducer(initialState, PersonaActions.addPersona('Chuck'))).toBe(initialState)
+  })
 })
