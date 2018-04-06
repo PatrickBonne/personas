@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { HomeGrid, PersonaListArea, PersonaDetailsArea, PersonaAddNewArea } from './HomeGrid'
-import { PersonaList } from './PersonaList'
-import { PersonaDetails } from './PersonaDetails'
-import { PersonaAddNew } from './PersonaAddNew'
+import { PersonaList, PersonaDetails, PersonaAddNew } from 'components/persona'
 
 class Home extends React.Component {
   state = {

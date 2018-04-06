@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux'
-import personas from 'pages/home/reducer'
+import personas from 'components/persona/reducer'
 
 const appReducer = combineReducers({
   personas
