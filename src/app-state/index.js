@@ -1,4 +1,4 @@
 import { store } from './store'
-// import { WithStore } from './WithStore'
+import { WithStore } from './WithStore'
 
-export { store }
+export { store, WithStore }
